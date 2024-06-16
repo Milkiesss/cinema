@@ -37,11 +37,5 @@ namespace cinema.Api.Controllers
             var result = await _serv.GetSeatsByAuditoriumId(Id);
             return Ok(result);
         }
-        [HttpGet("GetAll")]
-        public async Task<IActionResult> GetAll()
-        {
-            var result = await _serv.GetAll();
-            return Ok(result);
-        }
     }
 }

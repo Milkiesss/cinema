@@ -2,6 +2,7 @@
 using cinema.Application.DTOs.Auditorium.Request;
 using cinema.Application.DTOs.Auditorium.Responce;
 using cinema.Application.DTOs.Movie.Request;
+using cinema.Application.DTOs.Seats;
 using cinema.Application.Interfaces.Repository;
 using cinema.Domain.Entities;
 using System;
@@ -16,16 +17,16 @@ namespace cinema.Application.Mapping
     {
         public AuditoriumMapProfile()
         {
+            CreateMap<BaseSeatsDto, Seats>();
+            CreateMap<Seats, BaseSeatsDto>();
+
             CreateMap<AuditoriumCreateRequest, Auditorium>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
-
             CreateMap<AuditoriumUpdateRequest, Auditorium>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Seats, opt => opt.MapFrom(src => src.Seats));
-
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
 
             CreateMap<Auditorium, AuditoriumCreateResponce>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))

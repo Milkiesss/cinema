@@ -2363,11 +2363,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj",
       "projectName": "cinema.Domain",
-      "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj",
+      "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj",
       "packagesPath": "C:\\Users\\annap\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\obj\\",
+      "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\annap\\AppData\\Roaming\\NuGet\\NuGet.Config",

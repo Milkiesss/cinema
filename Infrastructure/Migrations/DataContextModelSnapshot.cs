@@ -172,13 +172,13 @@ namespace cinema.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("EndScreening")
-                        .HasColumnType("date");
+                        .HasColumnType("timestamptz");
 
                     b.Property<Guid>("MovieId")
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("StartScreening")
-                        .HasColumnType("date");
+                        .HasColumnType("timestamptz");
 
                     b.HasKey("Id");
 

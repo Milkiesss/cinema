@@ -29,11 +29,6 @@ namespace cinema.Infrastructure.Dal.Repository
             return true;
         }
 
-        public async Task<ICollection<Seats>> GetAll()
-        {
-            return await _db.seats.ToListAsync();
-        }
-
         public async Task<ICollection<Seats>> GetSeatsByAuditoriumId(Guid id)
         {
             var result = await _db.seats.Where(x => x.AuditoriumId == id).ToListAsync();
@@ -42,10 +37,11 @@ namespace cinema.Infrastructure.Dal.Repository
             return result;
         }
 
-        public async Task<ICollection<Seats>> Update(ICollection<Seats> entity)
+        public async Task<ICollection<Seats>> UpdateRange(ICollection<Seats> entity)
         {
+
             _db.seats.UpdateRange(entity);
-            await SaveChanges();
+            await SaveChanges();     
             return entity;
         }
 

@@ -11,12 +11,10 @@ namespace cinema.Application.Services
 {
     public class SeatManagementService : ISeatManagementService
     {
-        private readonly ISeatsRepository _Seatsrep;
         private readonly IAuditoriumRepository _Auditrep;
 
-        public SeatManagementService(ISeatsRepository Seatsrep, IAuditoriumRepository Auditrep)
+        public SeatManagementService(IAuditoriumRepository Auditrep)
         {
-            _Seatsrep = Seatsrep;
             _Auditrep = Auditrep;
         }
         public ICollection<SeatsCreateRequest> FillSeats(SeatsCreateRequest seats)

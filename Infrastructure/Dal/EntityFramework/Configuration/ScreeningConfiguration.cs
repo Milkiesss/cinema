@@ -19,10 +19,10 @@ namespace cinema.Infrastructure.Dal.EntityFramework.Configuration
                 .HasForeignKey(x => x.MovieId)
                 .IsRequired();
             builder.Property(x => x.StartScreening)
-                .HasColumnType("date")
+                .HasColumnType("timestamptz")
                 .IsRequired();
             builder.Property(x => x.EndScreening)
-                .HasColumnType("date")
+                .HasColumnType("timestamptz")
                 .IsRequired();
             builder.HasOne(x => x.Auditorium)
                 .WithMany()

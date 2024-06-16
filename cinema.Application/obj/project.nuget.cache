@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bYp1ZzW+8k45H49wbnF3yNlcaeUYqBXH23+BHz10XhYr2mRiyffIJYhYt8rwU4qvw1g0QEwIWm9+3JVPj5Gw3w==",
+  "dgSpecHash": "6pRTEnAUnSsn6Y2y8ze6WraBfzx1PMvlUA0c4ktrRZ1N5XvnQjNzxfcCrvl6UBHOLiuqCKzQeocTuvEKcsvERg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\cinema.Application.csproj",
+  "projectFilePath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\annap\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",

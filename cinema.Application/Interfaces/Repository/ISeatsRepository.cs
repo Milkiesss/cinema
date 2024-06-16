@@ -11,10 +11,9 @@ namespace cinema.Application.Interfaces.Repository
     public interface ISeatsRepository 
     {
         Task<ICollection<Seats>> CreateRange(ICollection<Seats> entity);
-        Task<ICollection<Seats>> Update(ICollection<Seats> entity);
+        Task<ICollection<Seats>> UpdateRange(ICollection<Seats> entity);
         Task<bool> DeleteRow(int RowNumber);
         Task<ICollection<Seats>> GetSeatsByAuditoriumId(Guid id);
-        Task<ICollection<Seats>> GetAll();
         Task SaveChanges();
     }
 }

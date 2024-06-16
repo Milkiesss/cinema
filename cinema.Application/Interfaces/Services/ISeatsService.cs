@@ -17,6 +17,5 @@ namespace cinema.Application.Interfaces.Services
         Task<ICollection<SeatsUpdateResponce>> UpdateRange(ICollection<SeatsUpdateRequest> entity);
         Task<bool> DeleteRow(int RowNumber);
         Task<ICollection<SeatsGetByIdResponce>> GetSeatsByAuditoriumId(Guid id);
-        Task<ICollection<SeatsGetAllResponce>> GetAll();
     }
 }

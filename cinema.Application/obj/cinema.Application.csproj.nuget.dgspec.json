@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\cinema.Application.csproj": {}
+    "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\cinema.Application.csproj": {
+    "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\cinema.Application.csproj",
+        "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj",
         "projectName": "cinema.Application",
-        "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\cinema.Application.csproj",
+        "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj",
         "packagesPath": "C:\\Users\\annap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\obj\\",
+        "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\annap\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj": {
-                "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj"
+              "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj": {
+                "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj"
               }
             }
           }
@@ -89,14 +89,14 @@
         }
       }
     },
-    "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj": {
+    "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj",
         "projectName": "cinema.Domain",
-        "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj",
+        "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj",
         "packagesPath": "C:\\Users\\annap\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\obj\\",
+        "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\annap\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -35,12 +35,6 @@ namespace cinema.Application.Services
             return await _rep.DeleteRow(RowNumber);
         }
 
-        public async Task<ICollection<SeatsGetAllResponce>> GetAll()
-        {
-            var result = await _rep.GetAll();
-            return _mapper.Map<ICollection<SeatsGetAllResponce>>(result);
-        }
-
         public async Task<ICollection<SeatsGetByIdResponce>> GetSeatsByAuditoriumId(Guid id)
         {
             var result = await _rep.GetSeatsByAuditoriumId(id);
@@ -50,7 +44,7 @@ namespace cinema.Application.Services
         public async Task<ICollection<SeatsUpdateResponce>> UpdateRange(ICollection<SeatsUpdateRequest> entity)
         {
             var result = _mapper.Map<ICollection<Seats>>(entity);
-            await _rep.Update(result);
+            await _rep.UpdateRange(result);
             return _mapper.Map<ICollection<SeatsUpdateResponce>>(result);
 
         }

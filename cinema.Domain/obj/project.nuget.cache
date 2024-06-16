@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8iv6rWdXUyxIB3g8LRLWh32wHYvIu3LkZtfGOnSVfV9w0qMiCi20+H7HuEuv5gcYq3/ywetCGjFarChht1OsnQ==",
+  "dgSpecHash": "EL9RKzo6UFlEjc2ly0sFRdriGYJ2y8FAhhvnSoPJLBIbPw+kO0xyN2r2nZYjUm/NjZcjlZ0GYrdZMhPuODpcOg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Domain\\cinema.Domain.csproj",
+  "projectFilePath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Domain\\cinema.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\annap\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

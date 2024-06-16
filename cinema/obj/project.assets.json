@@ -3037,11 +3037,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema\\cinema.Api.csproj",
+      "projectUniqueName": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema\\cinema.Api.csproj",
       "projectName": "cinema.Api",
-      "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema\\cinema.Api.csproj",
+      "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema\\cinema.Api.csproj",
       "packagesPath": "C:\\Users\\annap\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema\\obj\\",
+      "outputPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\annap\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3058,11 +3058,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\cinema.Application.csproj": {
-              "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\cinema.Application\\cinema.Application.csproj"
+            "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj": {
+              "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj"
             },
-            "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\Infrastructure\\cinema.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema-main\\Infrastructure\\cinema.Infrastructure.csproj"
+            "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\Infrastructure\\cinema.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\Infrastructure\\cinema.Infrastructure.csproj"
             }
           }
         }

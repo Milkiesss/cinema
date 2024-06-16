@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cinema.Application.DTOs.Seats.Responce
+namespace cinema.Application.DTOs.Screening.Responce
 {
-    public class SeatsGetAllResponce : BaseSeatsDto
+    public class ScreeningUpdateResponce : BaseScreeningDto
     {
         public Guid Id { get; set; }
     }
