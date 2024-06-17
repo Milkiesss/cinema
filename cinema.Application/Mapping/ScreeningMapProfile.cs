@@ -21,14 +21,14 @@ namespace cinema.Application.Mapping
                  .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId))
                  .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieId))
                  .ForMember(dest => dest.StartScreening, opt => opt.MapFrom(src => src.StartScreening))
-                 .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
+                  .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
 
             CreateMap<ScreeningUpdateRequest, Screening>()
                  .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
                  .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId))
                  .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieId))
                  .ForMember(dest => dest.StartScreening, opt => opt.MapFrom(src => src.StartScreening))
-                 .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
+                  .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
 
             CreateMap<Screening, ScreeningCreateResponce>()
                  .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))

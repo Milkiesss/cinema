@@ -22,8 +22,8 @@ namespace cinema.Infrastructure.Dal.EntityFramework.Configuration
                 .HasColumnType("timestamptz")
                 .IsRequired();
             builder.Property(x => x.EndScreening)
-                .HasColumnType("timestamptz")
-                .IsRequired();
+              .HasColumnType("timestamptz")
+              .IsRequired();
             builder.HasOne(x => x.Auditorium)
                 .WithMany()
                 .HasForeignKey(x => x.AuditoriumId)

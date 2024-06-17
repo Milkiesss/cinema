@@ -39,7 +39,6 @@ namespace cinema.Infrastructure.Dal.Repository
 
         public async Task<ICollection<Seats>> UpdateRange(ICollection<Seats> entity)
         {
-
             _db.seats.UpdateRange(entity);
             await SaveChanges();     
             return entity;

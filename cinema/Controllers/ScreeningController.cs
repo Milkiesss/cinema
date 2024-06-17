@@ -29,9 +29,9 @@ namespace cinema.Api.Controllers
             return Ok(result);
         }
         [HttpGet("GetByDateAndAuditoriumId")]
-        public async Task<IActionResult> GetById(/*[FromQuery] ScreeningGetByDateAndAuditoriumIdRequest request*/ DateTime date, Guid Id )
+        public async Task<IActionResult> GetById(DateTime date, Guid Id )
         {
-            var result = await _serv.GetDailyScreeningsByAuditoriumId(DateTime date, Guid Id);
+            var result = await _serv.GetDailyScreeningsByAuditoriumId( date,  Id);
             return Ok(result);
         }
 

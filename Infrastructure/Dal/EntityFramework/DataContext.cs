@@ -20,8 +20,7 @@ namespace cinema.Infrastructure.Dal.EntityFramework
         public DbSet<Comment> comments { get; set; }
         public DbSet<Screening> screenings { get; set; }
         public DbSet<Movie> movies { get; set; }
-        public DbSet<MovieStatistic> movieStatistics { get; set; }
-        public DbSet<ReservationStatistic> reservationStatistics { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -30,8 +29,6 @@ namespace cinema.Infrastructure.Dal.EntityFramework
             modelBuilder.ApplyConfiguration(new AuditoriumConfiguration());
             modelBuilder.ApplyConfiguration(new ScreeningConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
-            modelBuilder.ApplyConfiguration(new ReservationStatisticConfiguration());
-            modelBuilder.ApplyConfiguration(new MovieStatisticConfiguration());
             modelBuilder.ApplyConfiguration(new CommentConfiguration());
             modelBuilder.ApplyConfiguration(new UserConfiguration());
 

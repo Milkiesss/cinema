@@ -8,6 +8,6 @@ namespace cinema.Domain.Entities
         public int DurationMinuts { get; set; }
         public string Genre { get; set; }
         public string Title { get; set; }
-        public ICollection<Comment> Comments { get; set; }
+        public ICollection<Comment>? Comments { get; set; }
     }
 }

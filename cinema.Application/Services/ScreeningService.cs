@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using cinema.Application.DTOs.Screening.Request;
 using cinema.Application.DTOs.Screening.Responce;
+using cinema.Application.DTOs.Seats.Request;
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Domain.Entities;
@@ -23,16 +24,24 @@ namespace cinema.Application.Services
             _mapper = mapper;
         }
         public async Task<ICollection<ScreeningCreateResponce>> CreateRange(ICollection<ScreeningCreateRequest> entity)
-        {
-            var GetEndTime = await CalculateEndTime(entity);
-            var result = _mapper.Map<ICollection<Screening>>(GetEndTime);
+        { 
+            var result = _mapper.Map<ICollection<Screening>>(entity);
+            var overlapTasks = result.Select(x =>  CheckSessionOverlap(x.StartScreening, x.EndScreening, x.AuditoriumId)).ToList();
+            await Task.WhenAll(overlapTasks);
             await _rep.CreateRange(result);
             return _mapper.Map<ICollection<ScreeningCreateResponce>>(result);
         }
 
-        public Task<ICollection<ScreeningCreateRequest>> CalculateEndTime(ICollection<ScreeningCreateRequest> request)
+        public async Task<bool> CheckSessionOverlap(DateTime Start, DateTime End, Guid AuditoriumId)
         {
-            var GetDailyScreeining = GetDailyScreeningsByAuditoriumId(request.)
+            var DailySession = await _rep.GetScreeningByDateAndAuditoriumId(Start.Date, AuditoriumId);
+
+            var OverLapCheck = DailySession.Any(Overlap =>
+            Start <= Overlap.EndScreening && Overlap.StartScreening >= End);
+
+            if(OverLapCheck)
+                throw new Exception($"Session with a start time {Start} and the end time {End} overlaps with other sessions.");
+            return false;
         }
 
         public async Task<bool> Delete(Guid id)
