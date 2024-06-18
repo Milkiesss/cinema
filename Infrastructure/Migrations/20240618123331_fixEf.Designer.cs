@@ -12,8 +12,8 @@ using cinema.Infrastructure.Dal.EntityFramework;
 namespace cinema.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240617155756_FixScreening")]
-    partial class FixScreening
+    [Migration("20240618123331_fixEf")]
+    partial class fixEf
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,27 +101,6 @@ namespace cinema.Infrastructure.Migrations
                     b.ToTable("movies");
                 });
 
-            modelBuilder.Entity("cinema.Domain.Entities.MovieStatistic", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int?>("BoxOfficeReceipts")
-                        .IsRequired()
-                        .HasColumnType("integer");
-
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId")
-                        .IsUnique();
-
-                    b.ToTable("movieStatistics");
-                });
-
             modelBuilder.Entity("cinema.Domain.Entities.Reservation", b =>
                 {
                     b.Property<Guid>("Id")
@@ -146,25 +125,6 @@ namespace cinema.Infrastructure.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("reservations");
-                });
-
-            modelBuilder.Entity("cinema.Domain.Entities.ReservationStatistic", b =>
-                {
-                    b.Property<Guid>("ReservationId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("Userid")
-                        .HasColumnType("uuid");
-
-                    b.Property<bool?>("Arrived")
-                        .IsRequired()
-                        .HasColumnType("boolean");
-
-                    b.HasKey("ReservationId", "Userid");
-
-                    b.HasIndex("Userid");
-
-                    b.ToTable("reservationStatistics");
                 });
 
             modelBuilder.Entity("cinema.Domain.Entities.Screening", b =>
@@ -264,17 +224,6 @@ namespace cinema.Infrastructure.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("cinema.Domain.Entities.MovieStatistic", b =>
-                {
-                    b.HasOne("cinema.Domain.Entities.Movie", "Movie")
-                        .WithOne()
-                        .HasForeignKey("cinema.Domain.Entities.MovieStatistic", "MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Movie");
-                });
-
             modelBuilder.Entity("cinema.Domain.Entities.Reservation", b =>
                 {
                     b.HasOne("cinema.Domain.Entities.Screening", "Screening")
@@ -298,25 +247,6 @@ namespace cinema.Infrastructure.Migrations
                     b.Navigation("Screening");
 
                     b.Navigation("Seat");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("cinema.Domain.Entities.ReservationStatistic", b =>
-                {
-                    b.HasOne("cinema.Domain.Entities.Reservation", "Reservation")
-                        .WithMany()
-                        .HasForeignKey("ReservationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("cinema.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("Userid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Reservation");
 
                     b.Navigation("User");
                 });

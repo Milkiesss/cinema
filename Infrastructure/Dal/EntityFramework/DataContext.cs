@@ -1,11 +1,6 @@
 ﻿using cinema.Domain.Entities;
 using cinema.Infrastructure.Dal.EntityFramework.Configuration;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cinema.Infrastructure.Dal.EntityFramework
 {
@@ -16,6 +11,7 @@ namespace cinema.Infrastructure.Dal.EntityFramework
         public DbSet<Auditorium> auditoriums { get; set; }
         public DbSet<Seats> seats { get; set; }
         public DbSet<Reservation> reservations { get; set; }
+        public DbSet<ScreeningStatistic> ScreeningStatistics { get; set; }
         public DbSet<User> users { get; set; }
         public DbSet<Comment> comments { get; set; }
         public DbSet<Screening> screenings { get; set; }
@@ -27,6 +23,7 @@ namespace cinema.Infrastructure.Dal.EntityFramework
             modelBuilder.ApplyConfiguration(new MovieConfiguration());
             modelBuilder.ApplyConfiguration(new SeatsConfiguration());
             modelBuilder.ApplyConfiguration(new AuditoriumConfiguration());
+            modelBuilder.ApplyConfiguration(new ScreeningStatisticConfiguration());
             modelBuilder.ApplyConfiguration(new ScreeningConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
             modelBuilder.ApplyConfiguration(new CommentConfiguration());

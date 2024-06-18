@@ -6,5 +6,9 @@ using System.Threading.Tasks;
 
 namespace cinema.Application.DTOs.Seats.Request
 {
-    public class SeatsUpdateRequest : BaseSeatsDto;
+    public class SeatsUpdateRequest : BaseSeatsDto
+    { 
+        public Guid Id { get; set; }
+    }
+
 }

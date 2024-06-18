@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace cinema.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class AddedCommentLogic : Migration
+    public partial class fixEf : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -76,32 +76,13 @@ namespace cinema.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "movieStatistics",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    MovieId = table.Column<Guid>(type: "uuid", nullable: false),
-                    BoxOfficeReceipts = table.Column<int>(type: "integer", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_movieStatistics", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_movieStatistics_movies_MovieId",
-                        column: x => x.MovieId,
-                        principalTable: "movies",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "screenings",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     MovieId = table.Column<Guid>(type: "uuid", nullable: false),
-                    StartScreening = table.Column<DateTime>(type: "date", nullable: false),
-                    EndScreening = table.Column<DateTime>(type: "date", nullable: false),
+                    StartScreening = table.Column<DateTime>(type: "timestamptz", nullable: false),
+                    EndScreening = table.Column<DateTime>(type: "timestamptz", nullable: false),
                     AuditoriumId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
@@ -179,31 +160,6 @@ namespace cinema.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "reservationStatistics",
-                columns: table => new
-                {
-                    Userid = table.Column<Guid>(type: "uuid", nullable: false),
-                    ReservationId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Arrived = table.Column<bool>(type: "boolean", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_reservationStatistics", x => new { x.ReservationId, x.Userid });
-                    table.ForeignKey(
-                        name: "FK_reservationStatistics_reservations_ReservationId",
-                        column: x => x.ReservationId,
-                        principalTable: "reservations",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_reservationStatistics_users_Userid",
-                        column: x => x.Userid,
-                        principalTable: "users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_comments_Id",
                 table: "comments",
@@ -218,17 +174,6 @@ namespace cinema.Infrastructure.Migrations
                 name: "IX_comments_UserId",
                 table: "comments",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_movieStatistics_MovieId",
-                table: "movieStatistics",
-                column: "MovieId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_reservationStatistics_Userid",
-                table: "reservationStatistics",
-                column: "Userid");
 
             migrationBuilder.CreateIndex(
                 name: "IX_reservations_ScreeningId",
@@ -266,12 +211,6 @@ namespace cinema.Infrastructure.Migrations
         {
             migrationBuilder.DropTable(
                 name: "comments");
-
-            migrationBuilder.DropTable(
-                name: "movieStatistics");
-
-            migrationBuilder.DropTable(
-                name: "reservationStatistics");
 
             migrationBuilder.DropTable(
                 name: "reservations");

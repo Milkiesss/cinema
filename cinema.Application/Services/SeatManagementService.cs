@@ -1,21 +1,16 @@
 ﻿using cinema.Application.DTOs.Seats.Request;
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cinema.Application.Services
 {
     public class SeatManagementService : ISeatManagementService
     {
-        private readonly IAuditoriumRepository _Auditrep;
+        private readonly IAuditoriumRepository _auditrep;
 
-        public SeatManagementService(IAuditoriumRepository Auditrep)
+        public SeatManagementService(IAuditoriumRepository auditrep)
         {
-            _Auditrep = Auditrep;
+            _auditrep = auditrep;
         }
         public ICollection<SeatsCreateRequest> FillSeats(SeatsCreateRequest seats)
         {
@@ -30,14 +25,14 @@ namespace cinema.Application.Services
 
             return fill;
         }
-        public async Task<bool> CountCapacity(Guid Id)
+        public async Task<bool> CountCapacity(Guid id)
         {
-            var auditory = await  _Auditrep.GetById(Id);
+            var auditory = await  _auditrep.GetById(id);
             if (auditory is null)
                 return false;
             var seatCount = auditory.Seats.Count();
             auditory.Capacity = seatCount;
-            await _Auditrep.Update(auditory);
+            await _auditrep.Update(auditory);
             return true;
         }
     }
