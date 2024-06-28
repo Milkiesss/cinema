@@ -26,22 +26,8 @@ namespace cinema.Application.Services
         public async Task<ICollection<ScreeningCreateResponce>> CreateRange(ICollection<ScreeningCreateRequest> entity)
         { 
             var result = _mapper.Map<ICollection<Screening>>(entity);
-            var overlapTasks = result.Select(x =>  CheckSessionOverlap(x.StartScreening, x.EndScreening, x.AuditoriumId)).ToList();
-            await Task.WhenAll(overlapTasks);
             await _rep.CreateRange(result);
             return _mapper.Map<ICollection<ScreeningCreateResponce>>(result);
-        }
-
-        public async Task<bool> CheckSessionOverlap(DateTime Start, DateTime End, Guid AuditoriumId)
-        {
-            var DailySession = await _rep.GetScreeningByDateAndAuditoriumId(Start.Date, AuditoriumId);
-
-            var OverLapCheck = DailySession.Any(Overlap =>
-            Start <= Overlap.EndScreening && Overlap.StartScreening >= End);
-
-            if(OverLapCheck)
-                throw new Exception($"Session with a start time {Start} and the end time {End} overlaps with other sessions.");
-            return false;
         }
 
         public async Task<bool> Delete(Guid id)
