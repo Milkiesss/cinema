@@ -2,6 +2,7 @@
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Domain.Entities;
+using System.Collections.Generic;
 
 namespace cinema.Application.Services;
 
@@ -10,11 +11,14 @@ public class ScreeningManagementService : IScreeningManagementService
     private readonly IMovieRepository _movieRepository;
     private readonly IScreeningRepository _screeningRepository;
     private Dictionary<Guid, Movie>   _moviesCash;
-    private List<Screening> _screeningDayChash;
+    private Dictionary<(DateTime, Guid), List<Screening>> _screeningDayChash;
+    
     public ScreeningManagementService(IMovieRepository movieRepository, IScreeningRepository screeningRepository)
     {
         _movieRepository = movieRepository;
         _screeningRepository = screeningRepository;
+        _moviesCash = new Dictionary<Guid, Movie>();
+        _screeningDayChash = new Dictionary<(DateTime, Guid), List<Screening>>();
     }
 
     public async Task<ICollection<ScreeningCreateRequest>> GetMovieSessionEndTime(ICollection<ScreeningCreateRequest> request)
@@ -27,20 +31,28 @@ public class ScreeningManagementService : IScreeningManagementService
                 await GetMoviesAsync(item.MovieId);
             
             var movie = _moviesCash[item.MovieId];
-            item.StartScreening = item.StartScreening.AddMinutes(movie.DurationMinuts + 40);
+            item.EndScreening = item.StartScreening.AddMinutes(movie.DurationMinuts + 40);
+            await CheckSessionOverlap(item);
             return item;
         });
-        return endTime;
+        return await Task.WhenAll(endTime);
     }
     
     public async Task<bool> CheckSessionOverlap(ScreeningCreateRequest request)
     {
-        var DailySession = await _screeningRepository.GetScreeningByDateAndAuditoriumId(request.StartScreening.Date, request.AuditoriumId);
+        var sessionKey = (request.StartScreening.Date, request.AuditoriumId);
+        if (_screeningDayChash is null || !_screeningDayChash.ContainsKey(sessionKey))
+        {
+            var dailySession = await _screeningRepository.GetScreeningByDateAndAuditoriumId(request.StartScreening.Date, request.AuditoriumId);
+            if (dailySession.Count == 0)
+                return false;
+            _screeningDayChash.Add(sessionKey, dailySession.ToList());
+        }
 
-        var OverLapCheck = DailySession.Any(Overlap =>
-            request.StartScreening <= Overlap.EndScreening && Overlap.StartScreening >= request.EndScreening);
+        var overlapCheck = _screeningDayChash[sessionKey].Any(overlap =>
+            request.StartScreening < overlap.EndScreening && overlap.StartScreening < request.EndScreening);
 
-        if(OverLapCheck)
+        if (overlapCheck)
             throw new Exception($"Session with a start time {request.StartScreening } and the end time {request.EndScreening} overlaps with other sessions.");
         return false;
     }

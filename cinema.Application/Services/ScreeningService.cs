@@ -16,16 +16,19 @@ namespace cinema.Application.Services
     public class ScreeningService : IScreeningService
     {
         private readonly IScreeningRepository _rep;
+        private readonly IScreeningManagementService _managementService;
         private readonly IMapper _mapper;
 
-        public ScreeningService(IScreeningRepository rep, IMapper mapper)
+        public ScreeningService(IScreeningRepository rep,IScreeningManagementService managementService, IMapper mapper)
         {
             _rep = rep;
+            _managementService = managementService;
             _mapper = mapper;
         }
         public async Task<ICollection<ScreeningCreateResponce>> CreateRange(ICollection<ScreeningCreateRequest> entity)
-        { 
-            var result = _mapper.Map<ICollection<Screening>>(entity);
+        {
+            var CalculateEndTimeSession = await _managementService.GetMovieSessionEndTime(entity);
+            var result = _mapper.Map<ICollection<Screening>>(CalculateEndTimeSession);
             await _rep.CreateRange(result);
             return _mapper.Map<ICollection<ScreeningCreateResponce>>(result);
         }

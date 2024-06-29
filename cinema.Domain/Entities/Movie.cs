@@ -7,7 +7,7 @@ namespace cinema.Domain.Entities
         public int FilmRentalDurationDays { get; set; }
         public int DurationMinuts { get; set; }
         public string Genre { get; set; }
-        public bool IsShown {get;set;}
+        //public bool IsShown {get;set;}
         public string Title { get; set; }
         public ICollection<Comment>? Comments { get; set; }
     }

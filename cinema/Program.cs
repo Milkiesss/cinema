@@ -24,8 +24,9 @@ namespace cinema.Api
             builder.Services.AddScoped<IAuditoriumRepository, AuditoriumRepository>();
             builder.Services.AddScoped<IAuditoriumService, AuditoriumService>();
 
+            builder.Services.AddScoped<IScreeningManagementService, ScreeningManagementService>();
             builder.Services.AddScoped<ISeatManagementService, SeatManagementService>();
-
+    
             builder.Services.AddScoped<IScreeningRepository, ScreeningRepository>();
             builder.Services.AddScoped<IScreeningService, ScreeningService>();
 
