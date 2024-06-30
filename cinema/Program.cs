@@ -29,6 +29,10 @@ namespace cinema.Api
     
             builder.Services.AddScoped<IScreeningRepository, ScreeningRepository>();
             builder.Services.AddScoped<IScreeningService, ScreeningService>();
+            builder.Services.AddScoped<CryptograaphyService>();
+            
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();

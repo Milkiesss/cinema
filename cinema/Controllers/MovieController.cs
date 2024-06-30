@@ -1,4 +1,5 @@
-﻿using cinema.Application.DTOs.Movie.Request;
+﻿using cinema.Application.DTOs.Movie.Pag;
+using cinema.Application.DTOs.Movie.Request;
 using cinema.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,6 +30,12 @@ namespace cinema.Api.Controllers
         public async Task<IActionResult> GetById(Guid Id)
         {
             var result = await _serv.GetById(Id);
+            return Ok(result);
+        }
+        [HttpGet("GetPage")]
+        public async Task<IActionResult> GetPagedMovies([FromQuery] MoviePagRequest request)
+        {
+            var result = await _serv.GetPagedMovies(request);
             return Ok(result);
         }
         [HttpGet("GetAll")]

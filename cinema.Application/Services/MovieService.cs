@@ -4,11 +4,7 @@ using cinema.Application.DTOs.Movie.Responce;
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using cinema.Application.DTOs.Movie.Pag;
 
 namespace cinema.Application.Services
 {
@@ -50,6 +46,10 @@ namespace cinema.Application.Services
         {
             var result = await _rep.GetById(id);
             return _mapper.Map<MovieGetByIdResponce>(result);
+        }
+        public async Task<MoviePagResponce> GetPagedMovies(MoviePagRequest request)
+        {
+            return  await _rep.GetPagedMovies(request);
         }
 
     }

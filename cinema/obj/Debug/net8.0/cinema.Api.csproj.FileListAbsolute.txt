@@ -225,3 +225,4 @@ C:\Users\annap\OneDrive\Документы\texn\cinema-main\cinema\obj\Debug\net
 C:\Users\annap\OneDrive\Документы\texn\cinema-main\cinema\obj\Debug\net8.0\cinema.Api.pdb
 C:\Users\annap\OneDrive\Документы\texn\cinema-main\cinema\obj\Debug\net8.0\cinema.Api.genruntimeconfig.cache
 C:\Users\annap\OneDrive\Документы\texn\cinema-main\cinema\obj\Debug\net8.0\ref\cinema.Api.dll
+C:\Users\annap\OneDrive\Документы\texn\cinema\cinema\bin\Debug\net8.0\BouncyCastle.Cryptography.dll

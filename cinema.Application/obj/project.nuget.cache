@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "6pRTEnAUnSsn6Y2y8ze6WraBfzx1PMvlUA0c4ktrRZ1N5XvnQjNzxfcCrvl6UBHOLiuqCKzQeocTuvEKcsvERg==",
+  "dgSpecHash": "QFjLYCIAIbM/I5CamJAYs0OtA47gvYZbPgZiuwcBsH6cfIYylSjVM1HlMQ/chbPyn/3aP70IaZB9Pz3A1B6QKA==",
   "success": true,
   "projectFilePath": "C:\\Users\\annap\\OneDrive\\Документы\\texn\\cinema\\cinema.Application\\cinema.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\annap\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\annap\\.nuget\\packages\\bouncycastle.cryptography\\2.4.0\\bouncycastle.cryptography.2.4.0.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",

@@ -1,4 +1,8 @@
-﻿using cinema.Application.Interfaces.Repository;
+﻿using cinema.Application.DTOs.Movie;
+using cinema.Application.DTOs.Movie.Pag;
+using cinema.Application.DTOs.Movie.Request;
+using cinema.Application.Interfaces.Repository;
+using cinema.Application.Pagination;
 using cinema.Domain.Entities;
 using cinema.Infrastructure.Dal.EntityFramework;
 using Microsoft.EntityFrameworkCore;
@@ -47,6 +51,18 @@ namespace cinema.Infrastructure.Dal.Repository
             _db.movies.Update(entity);
             await SaveChanges();
             return entity;
+        }
+        public async Task<MoviePagResponce> GetPagedMovies(MoviePagRequest request)
+        {
+            var query = _db.movies.AsQueryable();
+            var movieList = PaginationExtension.GetPageResponce<Movie, MoviePagResponce, MovieLIstItems>(query, request, x =>
+                new MovieLIstItems
+                {
+                    Id = x.Id,
+                    Title = x.Title,
+                    // Добавьте остальные поля, которые вам нужны для MovieListItem
+                });
+            return movieList;
         }
         public async Task SaveChanges()
         {
