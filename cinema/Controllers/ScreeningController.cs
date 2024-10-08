@@ -19,26 +19,26 @@ namespace cinema.Api.Controllers
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] ICollection<ScreeningCreateRequest> request)
         {
-            var result = await _serv.CreateRange(request);
+            var result = await _serv.CreateRangeAsync(request);
             return Ok(result);
         }
         [HttpPut("Update")]
-        public async Task<IActionResult> Update([FromBody] ScreeningUpdateRequest request)
+        public async Task<IActionResult> Update([FromBody] ICollection<ScreeningUpdateRequest> request)
         {
-            var result = await _serv.Update(request);
+            var result = await _serv.UpdateRangeAsync(request);
             return Ok(result);
         }
         [HttpGet("GetByDateAndAuditoriumId")]
         public async Task<IActionResult> GetById(DateTime date, Guid Id )
         {
-            var result = await _serv.GetDailyScreeningsByAuditoriumId( date,  Id);
+            var result = await _serv.GetDailyScreeningsByAuditoriumIdAsync( date,  Id);
             return Ok(result);
         }
 
         [HttpDelete("Delete")]
         public async Task<IActionResult> Delete(Guid Id)
         {
-            var result = await _serv.Delete(Id);
+            var result = await _serv.DeleteAsync(Id);
             return Ok(result);
         }
     }

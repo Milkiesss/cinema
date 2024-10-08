@@ -30,25 +30,34 @@ namespace cinema.Application.Mapping
                   .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
 
             CreateMap<Screening, ScreeningCreateResponce>()
-                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
+                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                  .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId))
                  .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieId))
                  .ForMember(dest => dest.StartScreening, opt => opt.MapFrom(src => src.StartScreening))
                  .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
 
             CreateMap<Screening, ScreeningUpdateResponce>()
-                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
+                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                  .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId))
                  .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieId))
                  .ForMember(dest => dest.StartScreening, opt => opt.MapFrom(src => src.StartScreening))
                  .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
+            
             CreateMap<Screening, ScreeningGetByDateAndAuditoriumIdResponce>()
-                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => Guid.NewGuid()))
+                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                  .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId))
                  .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieId))
                  .ForMember(dest => dest.StartScreening, opt => opt.MapFrom(src => src.StartScreening))
                  .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
 
+            
+            CreateMap<Screening, ScreeningGetByIdResponce>()
+                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                 .ForMember(dest => dest.AuditoriumId, opt => opt.MapFrom(src => src.AuditoriumId))
+                 .ForMember(dest => dest.MovieId, opt => opt.MapFrom(src => src.MovieId))
+                 .ForMember(dest => dest.StartScreening, opt => opt.MapFrom(src => src.StartScreening))
+                 .ForMember(dest => dest.EndScreening, opt => opt.MapFrom(src => src.EndScreening));
+            //todo: fix mapping
         }
     }
 }

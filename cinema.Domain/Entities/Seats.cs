@@ -12,6 +12,6 @@ namespace cinema.Domain.Entities
         public virtual Auditorium Auditorium { get; set; }
         public int RowNumber { get; set; }
         public int SeatNumber { get; set; } 
-        public int PriceModifire { get; set; }
+        public int Price { get; set; }
     }
 }

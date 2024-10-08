@@ -9,9 +9,9 @@ namespace cinema.Application.Interfaces.Repository
 {
     public interface ICommentRepository
     {
-        Task<Comment> Create(Comment entity);
-        Task<Comment> Update(Comment entity);
-        Task<bool> Delete(Guid id);
-        Task SaveChanges();
+        Task<Comment> CreateAsync(Comment entity);
+        Task<Comment> UpdateAsync(Comment entity);
+        Task<bool> DeleteAsync(Guid id);
+        Task SaveChangesAsync();
     }
 }

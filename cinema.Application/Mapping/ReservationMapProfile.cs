@@ -38,7 +38,7 @@ namespace cinema.Application.Mapping
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
 
             CreateMap<Reservation, ReservationGetAllScreeningResponce>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+                .ForMember(dest => dest.reservationId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.SeatId, opt => opt.MapFrom(src => src.SeatId))
                 .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
         }

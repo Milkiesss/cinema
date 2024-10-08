@@ -10,10 +10,9 @@ namespace cinema.Application.Interfaces.Repository
 {
     public interface ISeatsRepository 
     {
-        Task<ICollection<Seats>> CreateRange(ICollection<Seats> entity);
-        Task<ICollection<Seats>> UpdateRange(ICollection<Seats> entity);
-        Task<bool> DeleteRow(int RowNumber);
-        Task<ICollection<Seats>> GetSeatsByAuditoriumId(Guid id);
-        Task SaveChanges();
+        Task<ICollection<Seats>> CreateRangeAsync(ICollection<Seats> entity);
+        Task<ICollection<Seats>> UpdateRangeAsync(ICollection<Seats> entity);
+        Task<bool> DeleteRowAsync(int RowNumber);
+        Task SaveChangesAsync();
     }
 }

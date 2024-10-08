@@ -13,6 +13,7 @@
           "Microsoft.EntityFrameworkCore.Proxies": "8.0.6",
           "Microsoft.EntityFrameworkCore.Tools": "8.0.6",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.19.5",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "8.0.4",
           "Swashbuckle.AspNetCore": "6.4.0",
           "cinema.Application": "1.0.0",
           "cinema.Infrastructure": "1.0.0"
@@ -29,14 +30,6 @@
           "lib/net6.0/AutoMapper.dll": {
             "assemblyVersion": "13.0.0.0",
             "fileVersion": "13.0.1.0"
-          }
-        }
-      },
-      "BouncyCastle.Cryptography/2.4.0": {
-        "runtime": {
-          "lib/net6.0/BouncyCastle.Cryptography.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.4.0.33771"
           }
         }
       },
@@ -591,7 +584,6 @@
       "cinema.Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "13.0.1",
-          "BouncyCastle.Cryptography": "2.4.0",
           "Microsoft.EntityFrameworkCore": "8.0.6",
           "Microsoft.EntityFrameworkCore.Proxies": "8.0.6",
           "cinema.Domain": "1.0.0"
@@ -635,13 +627,6 @@
       "sha512": "sha512-/Fx1SbJ16qS7dU4i604Sle+U9VLX+WSNVJggk6MupKVkYvvBm4XqYaeFuf67diHefHKHs50uQIS2YEDFhPCakQ==",
       "path": "automapper/13.0.1",
       "hashPath": "automapper.13.0.1.nupkg.sha512"
-    },
-    "BouncyCastle.Cryptography/2.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-SwXsAV3sMvAU/Nn31pbjhWurYSjJ+/giI/0n6tCrYoupEK34iIHCuk3STAd9fx8yudM85KkLSVdn951vTng/vQ==",
-      "path": "bouncycastle.cryptography/2.4.0",
-      "hashPath": "bouncycastle.cryptography.2.4.0.nupkg.sha512"
     },
     "Castle.Core/5.1.1": {
       "type": "package",

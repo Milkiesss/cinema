@@ -8,6 +8,6 @@ namespace cinema.Application.DTOs.Reservation.Responce
 {
     public class ReservationGetAllScreeningResponce : BaseReservationDto
     {
-        public Guid Id { get; set; }
+        public Guid reservationId { get; set; }
     }
 }

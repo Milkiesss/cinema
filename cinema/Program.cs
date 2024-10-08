@@ -4,7 +4,6 @@ using cinema.Application.Services;
 using cinema.Infrastructure.Dal.EntityFramework;
 using cinema.Infrastructure.Dal.Repository;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.RateLimiting;
 
 namespace cinema.Api
 {
@@ -29,10 +28,8 @@ namespace cinema.Api
     
             builder.Services.AddScoped<IScreeningRepository, ScreeningRepository>();
             builder.Services.AddScoped<IScreeningService, ScreeningService>();
-            builder.Services.AddScoped<CryptograaphyService>();
+
             
-            builder.Services.AddScoped<IUserService, UserService>();
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
@@ -46,7 +43,6 @@ namespace cinema.Api
             });
 
             var app = builder.Build();
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {

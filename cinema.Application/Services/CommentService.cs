@@ -22,22 +22,22 @@ namespace cinema.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<CommentCreateResponce> Create(CommentCreateRequest entity)
+        public async Task<CommentCreateResponce> CreateAsync(CommentCreateRequest entity)
         {
             var result = _mapper.Map<Comment>(entity);
-            await _rep.Create(result);
+            await _rep.CreateAsync(result);
             return _mapper.Map<CommentCreateResponce>(result);
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            return await _rep.Delete(id);
+            return await _rep.DeleteAsync(id);
         }
 
-        public async Task<CommentUpdateResponce> Update(CommentUpdateRequest entity)
+        public async Task<CommentUpdateResponce> UpdateAsync(CommentUpdateRequest entity)
         {
             var result = _mapper.Map<Comment>(entity);
-            await _rep.Update(result);
+            await _rep.UpdateAsync(result);
             return _mapper.Map<CommentUpdateResponce>(result);
         }
     }

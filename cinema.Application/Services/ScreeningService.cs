@@ -1,15 +1,9 @@
 ﻿using AutoMapper;
 using cinema.Application.DTOs.Screening.Request;
 using cinema.Application.DTOs.Screening.Responce;
-using cinema.Application.DTOs.Seats.Request;
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cinema.Application.Services
 {
@@ -25,28 +19,37 @@ namespace cinema.Application.Services
             _managementService = managementService;
             _mapper = mapper;
         }
-        public async Task<ICollection<ScreeningCreateResponce>> CreateRange(ICollection<ScreeningCreateRequest> entity)
+        public async Task<ICollection<ScreeningCreateResponce>> CreateRangeAsync(ICollection<ScreeningCreateRequest> entity)
         {
-            var CalculateEndTimeSession = await _managementService.GetMovieSessionEndTime(entity);
-            var result = _mapper.Map<ICollection<Screening>>(CalculateEndTimeSession);
-            await _rep.CreateRange(result);
+            var calculateEndTimeSession = await _managementService.GetMovieSessionEndTimeAsync(entity);
+            var result = _mapper.Map<ICollection<Screening>>(calculateEndTimeSession);
+            await _rep.CreateRangeAsync(result);
             return _mapper.Map<ICollection<ScreeningCreateResponce>>(result);
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            return await _rep.Delete(id);
+            return await _rep.DeleteAsync(id);
         }
 
-        public async Task<ICollection<ScreeningGetByDateAndAuditoriumIdResponce>> GetDailyScreeningsByAuditoriumId(DateTime date, Guid Id)
+        public async Task<ICollection<ScreeningGetByDateAndAuditoriumIdResponce>> GetDailyScreeningsByAuditoriumIdAsync(DateTime date, Guid Id)
         {
-            var result = await _rep.GetScreeningByDateAndAuditoriumId(date,Id);
+            var result = await _rep.GetScreeningByDateAndAuditoriumIdAsync(date,Id);
             return _mapper.Map<ICollection<ScreeningGetByDateAndAuditoriumIdResponce>>(result);
         }
 
-        public Task<ScreeningUpdateResponce> Update(ScreeningUpdateRequest entity)
+        public async Task<ICollection<ScreeningGetByIdResponce>> GetByIdsAsync(ICollection<Guid> Ids)
         {
-            throw new NotImplementedException();
+            var result = await _rep.GetByIdsAsync(Ids);
+            return _mapper.Map<ICollection<ScreeningGetByIdResponce>>(result);
+        }
+
+        public async Task<ICollection<ScreeningUpdateResponce>> UpdateRangeAsync(ICollection<ScreeningUpdateRequest> entity)
+        {
+            var calculateEndTimeSession = await _managementService.GetMovieSessionEndTimeAsync(entity);
+            var result = _mapper.Map<ICollection<Screening>>(calculateEndTimeSession);
+            await _rep.UpdateRangeAsync(result);
+            return _mapper.Map<ICollection<ScreeningUpdateResponce>>(result);
         }
     }
 }

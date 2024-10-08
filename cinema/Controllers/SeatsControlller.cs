@@ -16,25 +16,19 @@ namespace cinema.Api.Controllers
         [HttpPost("Create")]
         public async Task<IActionResult> Create([FromBody] SeatsCreateRequest request)
         {
-            var result = await _serv.CreateRange(request);
+            var result = await _serv.CreateRangeAsync(request);
             return Ok(result);
         }
         [HttpPut("Update")]
         public async Task<IActionResult> UpdateRange([FromBody] ICollection<SeatsUpdateRequest> request)
         {
-            var result = await _serv.UpdateRange(request);
+            var result = await _serv.UpdateRangeAsync(request);
             return Ok(result);
         }
         [HttpDelete("DeleteRow")]
         public async Task<IActionResult> DeleteRow(int RowNumber)
         {
-            var result = await _serv.DeleteRow(RowNumber);
-            return Ok(result);
-        }
-        [HttpGet("GetSeatsByAuditoriumId")]
-        public async Task<IActionResult> GetSeatsByAuditoriumId(Guid Id)
-        {
-            var result = await _serv.GetSeatsByAuditoriumId(Id);
+            var result = await _serv.DeleteRowAsync(RowNumber);
             return Ok(result);
         }
     }

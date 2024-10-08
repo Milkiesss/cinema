@@ -1,6 +1,6 @@
 ﻿namespace cinema.Domain.Entities;
 
-public class ScreeningStatistic : BaseEntity
+public class ScreeningStatistic 
 {
     public Guid ScreeningId { get; set; }
     public Screening Screening { get; set; }

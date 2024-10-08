@@ -17,21 +17,21 @@ namespace cinema.Api.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<IActionResult> Create([FromBody] CommentCreateRequest request)
+        public async Task<IActionResult> CreateAsync([FromBody] CommentCreateRequest request)
         {
-            var result = await _serv.Create(request);
+            var result = await _serv.CreateAsync(request);
             return Ok(result);
         }
         [HttpPut("Update")]
-        public async Task<IActionResult> Update([FromBody] CommentUpdateRequest request)
+        public async Task<IActionResult> UpdateAsync([FromBody] CommentUpdateRequest request)
         {
-            var result = await _serv.Update(request);
+            var result = await _serv.UpdateAsync(request);
             return Ok(result);
         }
         [HttpDelete("Delete")]
-        public async Task<IActionResult> Delete(Guid Id)
+        public async Task<IActionResult> DeleteAsync(Guid Id)
         {
-            var result = await _serv.Delete(Id);
+            var result = await _serv.DeleteAsync(Id);
             return Ok(result);
         }
     }

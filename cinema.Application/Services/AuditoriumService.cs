@@ -22,34 +22,34 @@ namespace cinema.Application.Services
             _rep = rep;
             _mapper = mapper;
         }
-        public async Task<AuditoriumCreateResponce> Create(AuditoriumCreateRequest entity)
+        public async Task<AuditoriumCreateResponce> CreateAsync(AuditoriumCreateRequest entity)
         {
             var result = _mapper.Map<Auditorium>(entity);
-            await _rep.Create(result);
+            await _rep.CreateAsync(result);
             return _mapper.Map<AuditoriumCreateResponce>(result);
         }
 
-        public async Task<bool> Delete(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            return await _rep.Delete(id);
+            return await _rep.DeleteAsync(id);
         }
 
-        public async Task<ICollection<AuditoriumGetAllResponce>> GetAll()
+        public async Task<ICollection<AuditoriumGetAllResponce>> GetAllAsync()
         {
-            var result = await _rep.GetAll();
+            var result = await _rep.GetAllAsync();
             return _mapper.Map<ICollection<AuditoriumGetAllResponce>>(result);
         }
 
-        public async Task<AuditoriumGetByIdResponce> GetById(Guid id)
+        public async Task<AuditoriumGetByIdResponce> GetByIdAsync(Guid id)
         {
-            var result = await _rep.GetById(id);
+            var result = await _rep.GetByIdAsync(id);
             return _mapper.Map<AuditoriumGetByIdResponce>(result);
         }
 
-        public async Task<AuditoriumUpdateResponce> Update(AuditoriumUpdateRequest entity)
+        public async Task<AuditoriumUpdateResponce> UpdateAsync(AuditoriumUpdateRequest entity)
         {
             var result = _mapper.Map<Auditorium>(entity);
-            await _rep.Update(result);
+            await _rep.UpdateAsync(result);
             return _mapper.Map<AuditoriumUpdateResponce>(result);
         }
     }

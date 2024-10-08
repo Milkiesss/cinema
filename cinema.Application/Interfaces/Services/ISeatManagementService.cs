@@ -4,6 +4,6 @@ namespace cinema.Application.Interfaces.Services;
 
 public interface ISeatManagementService
 { 
-    ICollection<SeatsCreateRequest> FillSeats(SeatsCreateRequest seats); 
-    Task<bool> CountCapacity(Guid id);
+    Task<ICollection<SeatsCreateRequest>> FillSeatsAsync(SeatsCreateRequest seats); 
+    Task<bool> CountCapacityAsync(Guid id);
 }

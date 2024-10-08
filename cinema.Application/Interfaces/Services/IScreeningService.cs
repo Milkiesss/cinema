@@ -12,10 +12,10 @@ namespace cinema.Application.Interfaces.Services
 {
     public interface IScreeningService
     {
-        Task<ICollection<ScreeningCreateResponce>> CreateRange(ICollection<ScreeningCreateRequest> entity);
-        Task<ScreeningUpdateResponce> Update(ScreeningUpdateRequest entity);
-        Task<bool> Delete(Guid id);
-        Task<ICollection<ScreeningGetByDateAndAuditoriumIdResponce>> GetDailyScreeningsByAuditoriumId(DateTime date, Guid Id);
-
+        Task<ICollection<ScreeningCreateResponce>> CreateRangeAsync(ICollection<ScreeningCreateRequest> entity);
+        Task<ICollection<ScreeningUpdateResponce>> UpdateRangeAsync(ICollection<ScreeningUpdateRequest> entity);
+        Task<bool> DeleteAsync(Guid id);
+        Task<ICollection<ScreeningGetByDateAndAuditoriumIdResponce>> GetDailyScreeningsByAuditoriumIdAsync(DateTime date, Guid Id);
+        Task<ICollection<ScreeningGetByIdResponce>> GetByIdsAsync(ICollection<Guid> Ids);
     }
 }

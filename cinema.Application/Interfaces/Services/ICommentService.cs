@@ -12,9 +12,9 @@ namespace cinema.Application.Interfaces.Services
 {
     public interface ICommentService
     {
-        Task<CommentCreateResponce> Create(CommentCreateRequest entity);
-        Task<CommentUpdateResponce> Update(CommentUpdateRequest entity);
-        Task<bool> Delete(Guid id);
+        Task<CommentCreateResponce> CreateAsync(CommentCreateRequest entity);
+        Task<CommentUpdateResponce> UpdateAsync(CommentUpdateRequest entity);
+        Task<bool> DeleteAsync(Guid id);
 
     }
 }

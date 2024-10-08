@@ -12,10 +12,10 @@ namespace cinema.Application.Interfaces.Services
 {
     public interface IReservationService
     {
-        Task<ReservationCreateResponce> Create(ReservationCreateRequest entity);
-        Task<ReservationUpdateResponce> Update(ReservationUpdateRequest entity);
-        Task<bool> Delete(Guid id);
-        Task<ReservationGetAllScreeningResponce> GetByScreeningId(Guid ScreeningId);
-        Task<ReservationGetByMovieIdResponce> GetByMovieId(Guid MovieId);
+        Task<ReservationCreateResponce> CreateAsync(ReservationCreateRequest entity);
+        Task<ReservationUpdateResponce> UpdateAsync(ReservationUpdateRequest entity);
+        Task<bool> DeleteAsync(Guid id);
+        Task<ReservationGetAllScreeningResponce> GetByScreeningIdAsync(Guid ScreeningId);
+        Task<ReservationGetByMovieIdResponce> GetByMovieIdAsync(Guid MovieId);
     }
 }

@@ -21,32 +21,25 @@ namespace cinema.Application.Services
             _serv = serv;
             _mapper = mapper;
         }
-        public async Task<ICollection<SeatsCreateResponce>> CreateRange(SeatsCreateRequest entity)
+        public async Task<ICollection<SeatsCreateResponce>> CreateRangeAsync(SeatsCreateRequest entity)
         {
-            var GetAllSeats = _serv.FillSeats(entity);
+            var GetAllSeats = await _serv.FillSeatsAsync(entity);
             var result = _mapper.Map<ICollection<Seats>>(GetAllSeats);
-            await _rep.CreateRange(result);
-            await _serv.CountCapacity(entity.AuditoriumId);
+            await _rep.CreateRangeAsync(result);
+            await _serv.CountCapacityAsync(entity.AuditoriumId);
             return _mapper.Map<ICollection<SeatsCreateResponce>>(result);
         }
 
-        public async Task<bool> DeleteRow(int RowNumber)
+        public async Task<bool> DeleteRowAsync(int RowNumber)
         {
-            return await _rep.DeleteRow(RowNumber);
+            return await _rep.DeleteRowAsync(RowNumber);
         }
 
-        public async Task<ICollection<SeatsGetByIdResponce>> GetSeatsByAuditoriumId(Guid id)
-        {
-            var result = await _rep.GetSeatsByAuditoriumId(id);
-            return _mapper.Map<ICollection<SeatsGetByIdResponce>>(result);
-        }
-
-        public async Task<ICollection<SeatsUpdateResponce>> UpdateRange(ICollection<SeatsUpdateRequest> entity)
+        public async Task<ICollection<SeatsUpdateResponce>> UpdateRangeAsync(ICollection<SeatsUpdateRequest> entity)
         {
             var result = _mapper.Map<ICollection<Seats>>(entity);
-            await _rep.UpdateRange(result);
+            await _rep.UpdateRangeAsync(result);
             return _mapper.Map<ICollection<SeatsUpdateResponce>>(result);
-
         }
     }
 }

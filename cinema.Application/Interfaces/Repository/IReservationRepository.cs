@@ -9,11 +9,11 @@ namespace cinema.Application.Interfaces.Repository
 {
     public interface IReservationRepository 
     {
-        Task<Reservation> Create(Reservation entity);
-        Task<Reservation> Update(Reservation entity);
-        Task<bool> Delete(Guid id);
-        Task<Reservation> GetByScreeningId(Guid ScreeningId);
-        Task<Reservation> GetByMovieId(Guid MovieId);
-        Task SaveChanges();
+        Task<Reservation> CreateAsync(Reservation entity);
+        Task<Reservation> UpdateAsync(Reservation entity);
+        Task<bool> DeleteAsync(Guid id);
+        Task<Reservation> GetByScreeningIdAsync(Guid ScreeningId);
+        Task<Reservation> GetByMovieIdAsync(Guid MovieId);
+        Task SaveChangesAsync();
     }
 }

@@ -10,11 +10,12 @@ namespace cinema.Application.Interfaces.Repository
 {
     public interface IScreeningRepository
     {
-        Task<ICollection<Screening>> CreateRange(ICollection<Screening> entity);
-        Task<Screening> Update(Screening entity);
-        Task<bool> Delete(Guid Id);
-        Task<ICollection<Screening>> GetScreeningByDateAndAuditoriumId(DateTime date, Guid Id);
-        Task SaveChanges();
+        Task<ICollection<Screening>> CreateRangeAsync(ICollection<Screening> entity);
+        Task<ICollection<Screening>> UpdateRangeAsync(ICollection<Screening> entity);
+        Task<bool> DeleteAsync(Guid Id);
+        Task<ICollection<Screening>> GetScreeningByDateAndAuditoriumIdAsync(DateTime date, Guid Id);
+        Task<ICollection<Screening>> GetByIdsAsync(ICollection<Guid> Ids);
+        Task SaveChangesAsync();
 
     }
 }

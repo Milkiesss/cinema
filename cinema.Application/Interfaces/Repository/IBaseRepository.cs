@@ -8,11 +8,11 @@ namespace cinema.Application.Interfaces.Repository
 {
     public interface IBaseRepository<Ttype>
     {
-        Task<Ttype> Create(Ttype entity);
-        Task<Ttype> Update(Ttype entity);
-        Task<bool> Delete(Guid id);
-        Task<Ttype> GetById(Guid id);
-        Task<ICollection<Ttype>> GetAll();
-        Task SaveChanges();
+        Task<Ttype> CreateAsync(Ttype entity);
+        Task<Ttype> UpdateAsync(Ttype entity);
+        Task<bool> DeleteAsync(Guid id);
+        Task<Ttype> GetByIdAsync(Guid id);
+        Task<ICollection<Ttype>> GetAllAsync();
+        Task SaveChangesAsync();
     }
 }

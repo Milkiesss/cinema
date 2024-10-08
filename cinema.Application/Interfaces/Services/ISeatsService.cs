@@ -13,9 +13,8 @@ namespace cinema.Application.Interfaces.Services
 {
     public interface ISeatsService
     {
-        Task<ICollection<SeatsCreateResponce>> CreateRange(SeatsCreateRequest entity);
-        Task<ICollection<SeatsUpdateResponce>> UpdateRange(ICollection<SeatsUpdateRequest> entity);
-        Task<bool> DeleteRow(int RowNumber);
-        Task<ICollection<SeatsGetByIdResponce>> GetSeatsByAuditoriumId(Guid id);
+        Task<ICollection<SeatsCreateResponce>> CreateRangeAsync(SeatsCreateRequest entity);
+        Task<ICollection<SeatsUpdateResponce>> UpdateRangeAsync(ICollection<SeatsUpdateRequest> entity);
+        Task<bool> DeleteRowAsync(int RowNumber);
     }
 }
