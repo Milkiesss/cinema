@@ -38,12 +38,18 @@ namespace cinema.Infrastructure.Dal.Repository
         }
         public async Task<ICollection<Screening>> GetScreeningByDateAndAuditoriumIdAsync(DateTime date, Guid Id)
         {
-           return await _db.screenings.Where(x => x.AuditoriumId == Id && x.StartScreening.Date == date.Date).ToListAsync();
+           var result = await _db.screenings.Where(x => x.AuditoriumId == Id && x.StartScreening.Date == date.Date).ToListAsync();
+           if (result is null)
+               throw new KeyNotFoundException();
+           return result;
         }
 
         public async Task<ICollection<Screening>> GetByIdsAsync(ICollection<Guid> Ids)
         {
-            return await _db.screenings.Where(x => Ids.Contains(x.Id)).ToListAsync();
+            var result = await _db.screenings.Where(x => Ids.Contains(x.Id)).ToListAsync();
+            if (result is null)
+                throw new KeyNotFoundException();
+            return result;
         }
 
         public async Task SaveChangesAsync()

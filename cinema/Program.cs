@@ -1,6 +1,8 @@
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
+using cinema.Application.Interfaces.Services.Authentication;
 using cinema.Application.Services;
+using cinema.Infrastructure.Authentication;
 using cinema.Infrastructure.Dal.EntityFramework;
 using cinema.Infrastructure.Dal.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +30,13 @@ namespace cinema.Api
     
             builder.Services.AddScoped<IScreeningRepository, ScreeningRepository>();
             builder.Services.AddScoped<IScreeningService, ScreeningService>();
+            
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
+            builder.Services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
+            builder.Services.AddMemoryCache();
             
 
             builder.Services.AddControllers();

@@ -1,10 +1,10 @@
 ﻿using cinema.Application.DTOs.User;
 using cinema.Application.DTOs.User.Reaponce;
 
-namespace cinema.Application.Interfaces.Services;
+namespace cinema.Application.Interfaces.Services.Authentication;
 
 public interface IAuthenticationService
 {
     Task<LoginResponce> Login(LoginRequest entity);
-    Task<RegisterRequest> Register(RegisterRequest entity);
+    Task<RegisterationRequest> Register(RegisterationRequest entity);
 }

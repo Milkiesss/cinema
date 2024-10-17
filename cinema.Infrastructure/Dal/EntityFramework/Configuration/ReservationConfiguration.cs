@@ -23,7 +23,7 @@ namespace cinema.Infrastructure.Dal.EntityFramework.Configuration
                 .HasForeignKey(x => x.SeatId)
                 .IsRequired();
             builder.HasOne(x => x.User)
-               .WithMany(u => u.Reservations)
+               .WithMany(x => x.Reservations)
                .HasForeignKey(x => x.UserId)
                .IsRequired();
         }

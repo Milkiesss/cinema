@@ -8,7 +8,7 @@ public class ScreeningStatisticConfiguration : IEntityTypeConfiguration<Screenin
 {
     public void Configure(EntityTypeBuilder<ScreeningStatistic> builder)
     {
-        builder.HasKey(x =>  new { x.ScreeningId, x.ScreeningDate });
+        builder.HasKey(x => new {x.ScreeningId,x.ScreeningDate});
         builder.HasOne(x => x.Screening)
             .WithMany()
             .HasForeignKey(x => x.ScreeningId)

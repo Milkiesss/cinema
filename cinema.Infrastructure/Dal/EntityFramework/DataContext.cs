@@ -11,6 +11,7 @@ namespace cinema.Infrastructure.Dal.EntityFramework
         public DbSet<Auditorium> auditoriums { get; set; }
         public DbSet<Seats> seats { get; set; }
         public DbSet<Reservation> reservations { get; set; }
+        
         public DbSet<ScreeningStatistic> ScreeningStatistics { get; set; }
         public DbSet<User> users { get; set; }
         public DbSet<Comment> comments { get; set; }
@@ -27,6 +28,7 @@ namespace cinema.Infrastructure.Dal.EntityFramework
             modelBuilder.ApplyConfiguration(new ScreeningConfiguration());
             modelBuilder.ApplyConfiguration(new ReservationConfiguration());
             modelBuilder.ApplyConfiguration(new CommentConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

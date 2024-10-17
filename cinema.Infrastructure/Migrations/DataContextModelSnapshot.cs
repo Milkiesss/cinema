@@ -176,7 +176,7 @@ namespace cinema.Infrastructure.Migrations
                     b.Property<Guid>("AuditoriumId")
                         .HasColumnType("uuid");
 
-                    b.Property<int>("PriceModifire")
+                    b.Property<int>("Price")
                         .HasColumnType("integer");
 
                     b.Property<int>("RowNumber")
@@ -202,11 +202,15 @@ namespace cinema.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("FullName")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Role")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -300,6 +304,33 @@ namespace cinema.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Auditorium");
+                });
+
+            modelBuilder.Entity("cinema.Domain.Entities.User", b =>
+                {
+                    b.OwnsOne("cinema.Domain.ValueObject.FullName", "FullName", b1 =>
+                        {
+                            b1.Property<Guid>("UserId")
+                                .HasColumnType("uuid");
+
+                            b1.Property<string>("firstName")
+                                .IsRequired()
+                                .HasColumnType("text");
+
+                            b1.Property<string>("lastName")
+                                .IsRequired()
+                                .HasColumnType("text");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("users");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("FullName")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("cinema.Domain.Entities.Auditorium", b =>

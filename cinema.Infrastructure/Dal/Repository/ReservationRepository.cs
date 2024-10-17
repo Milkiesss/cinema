@@ -36,7 +36,10 @@ namespace cinema.Infrastructure.Dal.Repository
 
         public async Task<Reservation> GetByScreeningIdAsync(Guid ScreeningId)
         {
-            var result = await _db.reservations.Include(x => x.Seat).Include(x=> x.Screening).FirstOrDefaultAsync(x => x.ScreeningId == ScreeningId);
+            var result = await _db.reservations
+                .Include(x => x.Seat)
+                .Include(x=> x.Screening)
+                .FirstOrDefaultAsync(x => x.ScreeningId == ScreeningId);
             if (result is null)
                 throw new KeyNotFoundException();
             return result;
