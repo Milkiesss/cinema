@@ -1,4 +1,5 @@
 ﻿using cinema.Application.DTOs.User;
+using cinema.Application.DTOs.User.Request;
 using cinema.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;

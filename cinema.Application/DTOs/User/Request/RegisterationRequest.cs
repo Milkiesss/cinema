@@ -1,9 +1,3 @@
-﻿namespace cinema.Application.DTOs.User;
+﻿namespace cinema.Application.DTOs.User.Request;
 
-public record RegisterationRequest
-{
-     public FullNameDto fullName { get; init; }
-     public string email { get; init; }
-     public string role { get; init; }
-     public string password { get; init; }
-}
+public class RegisterationRequest : BaseUserDto;

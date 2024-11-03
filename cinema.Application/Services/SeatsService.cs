@@ -1,12 +1,11 @@
 ﻿  using AutoMapper;
-using cinema.Application.DTOs.Movie.Responce;
-using cinema.Application.DTOs.Seats.Request;
-using cinema.Application.DTOs.Seats.Responce;
-using cinema.Application.Interfaces.Repository;
+  using cinema.Application.DTOs.Seats.Request;
+  using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Domain.Entities;
 using System.Collections;
 using System.Runtime.InteropServices;
+using cinema.Application.DTOs.Seats.Response;
 
 namespace cinema.Application.Services
 {
@@ -21,13 +20,13 @@ namespace cinema.Application.Services
             _serv = serv;
             _mapper = mapper;
         }
-        public async Task<ICollection<SeatsCreateResponce>> CreateRangeAsync(SeatsCreateRequest entity)
+        public async Task<ICollection<SeatsCreateResponse>> CreateRangeAsync(SeatsCreateRequest entity)
         {
             var GetAllSeats = await _serv.FillSeatsAsync(entity);
             var result = _mapper.Map<ICollection<Seats>>(GetAllSeats);
             await _rep.CreateRangeAsync(result);
             await _serv.CountCapacityAsync(entity.AuditoriumId);
-            return _mapper.Map<ICollection<SeatsCreateResponce>>(result);
+            return _mapper.Map<ICollection<SeatsCreateResponse>>(result);
         }
 
         public async Task<bool> DeleteRowAsync(int RowNumber)
@@ -35,11 +34,11 @@ namespace cinema.Application.Services
             return await _rep.DeleteRowAsync(RowNumber);
         }
 
-        public async Task<ICollection<SeatsUpdateResponce>> UpdateRangeAsync(ICollection<SeatsUpdateRequest> entity)
+        public async Task<ICollection<SeatsUpdateResponse>> UpdateRangeAsync(ICollection<SeatsUpdateRequest> entity)
         {
             var result = _mapper.Map<ICollection<Seats>>(entity);
             await _rep.UpdateRangeAsync(result);
-            return _mapper.Map<ICollection<SeatsUpdateResponce>>(result);
+            return _mapper.Map<ICollection<SeatsUpdateResponse>>(result);
         }
     }
 }

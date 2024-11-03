@@ -1,4 +1,4 @@
-﻿namespace cinema.Application.DTOs.User;
+﻿namespace cinema.Application.DTOs.User.Request;
 
 public class LoginRequest
 {

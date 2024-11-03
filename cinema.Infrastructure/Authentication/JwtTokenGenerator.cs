@@ -13,7 +13,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
     {
         var siginingCredential = new SigningCredentials(
             new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes("Cinema brings stories to life on screen.")),
+                Encoding.UTF8.GetBytes("Cinema-brings-stories-to-life-on-screen.")),
             SecurityAlgorithms.HmacSha256);
         var claims = new[]
         {
@@ -21,12 +21,12 @@ public class JwtTokenGenerator : IJwtTokenGenerator
             new Claim(JwtRegisteredClaimNames.GivenName, entity.FullName.firstName),
             new Claim(JwtRegisteredClaimNames.FamilyName, entity.FullName.lastName),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("role",entity.Role),
+            new Claim("role",entity.Role.ToString()),
             new Claim("email",entity.Email)
         };
         var securityToken = new JwtSecurityToken(
             issuer: "Cinema-ShandrigozHuilo",
-            expires: DateTime.Now.AddDays(1),
+            expires: DateTime.Now.AddHours(2),
             claims: claims,
             signingCredentials: siginingCredential);
         

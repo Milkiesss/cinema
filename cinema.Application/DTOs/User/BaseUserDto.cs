@@ -1,8 +1,12 @@
-﻿namespace cinema.Application.DTOs.User;
+﻿using cinema.Domain.Enums;
+
+namespace cinema.Application.DTOs.User;
 
 public class BaseUserDto
 {
-    public FullNameDto fullName { get; init; }
-    public string email { get; init; }
-    public string token { get; init; }
+    public FullNameDto fullName { get; set; }  
+    public string email { get; set; }
+    public string password { get; set; }
+    public DateTime birthDate { get; set; }
+    public EnumRole role { get; set; }
 }

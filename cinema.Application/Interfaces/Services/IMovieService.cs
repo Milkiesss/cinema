@@ -1,15 +1,15 @@
 ﻿
 using cinema.Application.DTOs.Movie.Request;
-using cinema.Application.DTOs.Movie.Responce;
+using cinema.Application.DTOs.Movie.Response;
 
 namespace cinema.Application.Interfaces.Services
 {
     public interface IMovieService
     {
-        Task<MovieCreateResponce> CreateAsync(MovieCreateRequest entity);
-        Task<MovieUpdateResponce> UpdateAsync(MovieUpdateRequest entity);
+        Task<MovieCreateResponse> CreateAsync(MovieCreateRequest entity, string fileName, string contentType,Stream  stream);
+        Task<MovieUpdateResponse> UpdateAsync(MovieUpdateRequest entity,string fileName, string contentType,Stream source);
         Task<bool> DeleteAsync(Guid id);
-        Task<MovieGetByIdResponce> GetByIdAsync(Guid id);
-        Task<ICollection<MovieGetAllResponce>> GetAllAsync();
+        Task<MovieGetByIdResponse> GetByIdAsync(Guid id);
+        Task<ICollection<MovieGetAllResponse>> GetAllAsync();
     }
 }

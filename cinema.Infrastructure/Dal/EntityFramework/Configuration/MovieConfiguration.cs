@@ -9,9 +9,16 @@ namespace cinema.Infrastructure.Dal.EntityFramework.Configuration
         public void Configure(EntityTypeBuilder<Movie> builder)
         {
             builder.HasKey(x=>x.Id);
-            builder.Property(x => x.DurationMinuts)
+            builder.Property(x => x.ReleaseDate)
+                .HasColumnType("date")
                 .IsRequired();
             builder.Property(x => x.FilmRentalDurationDays)
+                .IsRequired();
+            builder.Property(x => x.DurationMinuts)
+                .IsRequired();
+            builder.Property(x => x.ImageUrl)
+                .IsRequired();
+            builder.Property(x => x.Restriction)
                 .IsRequired();
             builder.Property(x => x.Genre)
                 .IsRequired()

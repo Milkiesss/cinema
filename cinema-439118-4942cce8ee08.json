@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "cinema-439118",
+  "private_key_id": "4942cce8ee089b0aeed53f875926cbb29172c724",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC5uYnKuFTcNrMP\nwQAGDdjNipNN1eXZeqBi9GofDg3JsZ9K66GjEvov/UXiUUMBV2wD4BE9EJ1NeS1l\n9SlMn6JcFq5Sl9yoyjF6bCuZqm6W3IThtd/D2NfyfQZJZF+Ry84HYtVcQCVjpLlf\n/3SxXchQg7JkS3RqpCZvYKdFsuaeGrSCYbc3FKCM6SJkHrxpy64VrT5YC1eJdG9v\n94nsgjKEqMlxd5HoJlQtFfY0tXk0hzJPTdpk33j84oBiqqrlP/Rxe4OeWQGqrstQ\nVvp9oUed2RPa0jKb57Gae+/JzTCtsymUaRoHqVtPKWMDM19GP3xI6GDoibksiLxJ\nF5JdeMczAgMBAAECggEAFcbsIcGIbcPaLiQ2wP75p2wyxoMort4ClWfMU7TdqAM0\nRuAnNUxh2qOrgJR/s1YRW8j3rH3Yu/9T8+sRuyLSslKUgSm+XWpL7+tkF2IVEopr\n6F1fjgLMm2nOhWeIDzvi/hm4I9d/qtXjSJ7XC38QIGS406rHTUPPH+so4fLOuMX8\npiW5n+VVSZxnvCeGS1Q6r6Y2vm7AUs/EfUhw+pv1ICPvkAKSN6A5V1ZKWsFDL6eN\nkNFSminc/Uk6wpyR0Q0tuMDE50hWMaL1Eu2WRA/W9cfHUZNifKmsuaeVrKa5Rxfi\nRWFvJXTnz57PwgUSBBqKAFDiERH10Wy98tlqBrYboQKBgQDlV1QFcwlDFXHr2dJF\nSEqhoHs73BEsFv9zl0UrEnowLOXMZidG9TWPLiONYhVJ1UEDmIDoyjZATfMiB6lo\nkJO5jWgergu306qhil3R1lZMfj4AyMRKqEoUJshbY8EYYaP6mgLiSijSv6tE8fbY\nfI7bKetUI3K0JiH5f0zBGAlFoQKBgQDPUEkvDhXz6eirGnBc2eUwgeQorHc0X4PZ\nLog4Rcl0Y6+cFg2KfQ/AoTbQIJwF1SWpLhFW9j3pm6fb4yF+G71YIEYtDZOl4wma\nXHaLqD0jaZq88UiNjZHxOaiTPc67tRvp9bH48oTwSD85m1g1h5fwuq83UCyYE3Vb\nR3ki2kK0UwKBgQCSBD3MkmdtPLQhk7eawOIzcbfEbuLIDYRrFf7F46fEEHHm54tO\nVETbembMV4xyS8JvBaPdkxFjc72/Bt3HY3WKiAuorOttCOj0nOIK/cpIPYBAg5Lm\nbatslRyvgx2n5lK+9Vuss8a2F6514RBm2TcjNtdL5J3dMQIklfZKYoFUwQKBgBUy\ng1khWpNHDng4StbjnLCaB2c1QzcCsSuKu3jtgcy5yKHwC1Bmuy6aDU24l9ts0N38\njN9UbD4voTk1fx4y3ehd3G8M3VTv4vJ6k9Bx0laFnMHG9gErQYnluFvdzP6aZRFG\nAv2OZpNe/7/3J0zJ4XpGzFWeiADAtJYxt6wdnwZrAoGAQan08agj7j5JR+iPMSPs\na3wm93EW6ZZJaIczarqeN+w5bLmFM+Sc87Xe+aQ9yOh/7R1NphD6o331yngMw9bQ\nxBzvb3N2WEFuKWtT26Rn6hS5yuJU97r+vf3NBPlpLfIwpNpAcX8LnRCpCAJtfIGe\nRBN6/faMnId6hmOuHTOwSsQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "cimena-polakova@cinema-439118.iam.gserviceaccount.com",
+  "client_id": "101205376324261896643",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cimena-polakova%40cinema-439118.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

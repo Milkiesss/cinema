@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using cinema.Application.DTOs.Comment.Request;
-using cinema.Application.DTOs.Comment.Responce;
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Domain.Entities;
@@ -9,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using cinema.Application.DTOs.Comment.Response;
 
 namespace cinema.Application.Services
 {
@@ -22,11 +22,11 @@ namespace cinema.Application.Services
             _mapper = mapper;
         }
 
-        public async Task<CommentCreateResponce> CreateAsync(CommentCreateRequest entity)
+        public async Task<CommentCreateResponse> CreateAsync(CommentCreateRequest entity)
         {
             var result = _mapper.Map<Comment>(entity);
             await _rep.CreateAsync(result);
-            return _mapper.Map<CommentCreateResponce>(result);
+            return _mapper.Map<CommentCreateResponse>(result);
         }
 
         public async Task<bool> DeleteAsync(Guid id)
@@ -34,11 +34,11 @@ namespace cinema.Application.Services
             return await _rep.DeleteAsync(id);
         }
 
-        public async Task<CommentUpdateResponce> UpdateAsync(CommentUpdateRequest entity)
+        public async Task<CommentUpdateResponse> UpdateAsync(CommentUpdateRequest entity)
         {
             var result = _mapper.Map<Comment>(entity);
             await _rep.UpdateAsync(result);
-            return _mapper.Map<CommentUpdateResponce>(result);
+            return _mapper.Map<CommentUpdateResponse>(result);
         }
     }
 }

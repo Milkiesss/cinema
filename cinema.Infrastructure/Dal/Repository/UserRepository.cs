@@ -14,12 +14,14 @@ public class UserRepository : IUserRepository
         _db = db;
     }
 
-    public async Task<User?> GetByEmailAsync(string Email)
+    public async Task<User> GetByEmailAsync(string email)
     {
-        var result = await _db.users.FirstOrDefaultAsync(x => x.Email == Email);
+        var result = await _db.users.FirstOrDefaultAsync(x => x.Email == email);
+        if (result is null)
+            throw new KeyNotFoundException();
         return result;
     }
-
+    
     public async Task<User> CreateAsync(User entity)
     {
         var result = await _db.users.AnyAsync(x => x.Email == entity.Email);
@@ -28,6 +30,11 @@ public class UserRepository : IUserRepository
         await _db.users.AddAsync(entity);
         await SaveChangesAsync();
         return entity;
+    }
+
+    public async Task<bool> IsExist(string email)
+    {
+        return await _db.users.AnyAsync(x => x.Email == email);
     }
 
     public async Task SaveChangesAsync()

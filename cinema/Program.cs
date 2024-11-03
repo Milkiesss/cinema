@@ -18,6 +18,7 @@ namespace cinema.Api
             // Add services to the container.
             builder.Services.AddScoped<IMovieRepository, MovieRepository>();
             builder.Services.AddScoped<IMovieService, MovieService>();
+            builder.Services.AddSingleton<IGoogleStorageService, GoogleStorageService>();
 
             builder.Services.AddScoped<ISeatsRepository, SeatsRepository>();
             builder.Services.AddScoped<ISeatsService, SeatsService>();
@@ -35,6 +36,7 @@ namespace cinema.Api
             builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+            
 
             builder.Services.AddMemoryCache();
             
@@ -46,7 +48,6 @@ namespace cinema.Api
 
             builder.Services.AddDbContext<DataContext>(option =>
             {
-                //option.UseLazyLoadingProxies();
                 option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
@@ -61,6 +62,7 @@ namespace cinema.Api
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseAuthentication();//todo
 
 
             app.MapControllers();

@@ -1,4 +1,5 @@
-﻿using cinema.Application.DTOs.Movie.Request;
+﻿using cinema.Application.DTOs.Movie;
+using cinema.Application.DTOs.Movie.Request;
 using cinema.Application.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,15 +15,19 @@ namespace cinema.Api.Controllers
             _serv = serv;
         }
         [HttpPost("Create")]
-        public async Task<IActionResult> CreateAsync([FromBody] MovieCreateRequest request)
+        public async Task<IActionResult> CreateAsync([FromForm] MovieCreateRequest request,  IFormFile? file)
         {
-            var result = await _serv.CreateAsync(request);
+            var stream = file?.OpenReadStream();
+            
+            var result = await _serv.CreateAsync(request,file?.FileName, file?.ContentType,stream);
             return Ok(result);
         }
+        
         [HttpPut("Update")]
-        public async Task<IActionResult> UpdateAsync([FromBody] MovieUpdateRequest request)
+        public async Task<IActionResult> UpdateAsync([FromForm] MovieUpdateRequest request, IFormFile file)
         {
-            var result = await _serv.UpdateAsync(request);
+            var stream = file.OpenReadStream();
+            var result = await _serv.UpdateAsync(request,file.FileName, file.ContentType, stream);
             return Ok(result);
         }
         [HttpGet("GetById")]

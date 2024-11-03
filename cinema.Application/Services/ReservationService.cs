@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using cinema.Application.DTOs.Movie.Request;
-using cinema.Application.DTOs.Movie.Responce;
 using cinema.Application.DTOs.Reservation.Request;
-using cinema.Application.DTOs.Reservation.Responce;
+using cinema.Application.DTOs.Reservation.Response;
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Domain.Entities;
@@ -18,11 +16,11 @@ namespace cinema.Application.Services
             _rep = rep;
             _mapper = mapper;
         }
-        public async Task<ReservationCreateResponce> CreateAsync(ReservationCreateRequest entity)
+        public async Task<ReservationCreateResponse> CreateAsync(ReservationCreateRequest entity)
         {
             var result = _mapper.Map<Reservation>(entity);
             await _rep.CreateAsync(result);
-            return _mapper.Map<ReservationCreateResponce>(result);
+            return _mapper.Map<ReservationCreateResponse>(result);
         }
 
         public async Task<bool> DeleteAsync(Guid id)
@@ -30,23 +28,23 @@ namespace cinema.Application.Services
             return await _rep.DeleteAsync(id);
         }
 
-        public async Task<ReservationGetAllScreeningResponce> GetByScreeningIdAsync(Guid ScreeningId)
+        public async Task<ReservationGetAllScreeningResponse> GetByScreeningIdAsync(Guid ScreeningId)
         {
             var result = await _rep.GetByScreeningIdAsync(ScreeningId);
-            return _mapper.Map<ReservationGetAllScreeningResponce>(result);
+            return _mapper.Map<ReservationGetAllScreeningResponse>(result);
         }
 
-        public async Task<ReservationGetByMovieIdResponce> GetByMovieIdAsync(Guid MovieId)
+        public async Task<ReservationGetByMovieIdResponse> GetByMovieIdAsync(Guid MovieId)
         {
             var result = await _rep.GetByMovieIdAsync(MovieId);
-            return _mapper.Map<ReservationGetByMovieIdResponce>(result);
+            return _mapper.Map<ReservationGetByMovieIdResponse>(result);
         }
 
-        public async Task<ReservationUpdateResponce> UpdateAsync(ReservationUpdateRequest entity)
+        public async Task<ReservationUpdateResponse> UpdateAsync(ReservationUpdateRequest entity)
         {
             var result = _mapper.Map<Reservation>(entity);
             await _rep.UpdateAsync(result);
-            return _mapper.Map<ReservationUpdateResponce>(result);
+            return _mapper.Map<ReservationUpdateResponse>(result);
 
         }
     }

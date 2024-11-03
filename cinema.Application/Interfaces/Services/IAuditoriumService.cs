@@ -1,14 +1,14 @@
 ﻿using cinema.Application.DTOs.Auditorium.Request;
-using cinema.Application.DTOs.Auditorium.Responce;
+using cinema.Application.DTOs.Auditorium.Response;
 
 namespace cinema.Application.Interfaces.Services
 {
     public interface IAuditoriumService
     {
-        Task<AuditoriumCreateResponce> CreateAsync(AuditoriumCreateRequest entity);
-        Task<AuditoriumUpdateResponce> UpdateAsync(AuditoriumUpdateRequest entity);
+        Task<AuditoriumCreateResponse> CreateAsync(AuditoriumCreateRequest entity);
+        Task<AuditoriumUpdateResponse> UpdateAsync(AuditoriumUpdateRequest entity);
         Task<bool> DeleteAsync(Guid id);
-        Task<AuditoriumGetByIdResponce> GetByIdAsync(Guid id);
-        Task<ICollection<AuditoriumGetAllResponce>> GetAllAsync();
+        Task<AuditoriumGetByIdResponse> GetByIdAsync(Guid id);
+        Task<ICollection<AuditoriumGetAllResponse>> GetAllAsync();
     }
 }

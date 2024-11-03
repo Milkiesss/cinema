@@ -1,6 +1,8 @@
-﻿using AutoMapper;
+﻿using System.Security.AccessControl;
+using AutoMapper;
 using cinema.Application.DTOs.User;
-using cinema.Application.DTOs.User.Reaponce;
+using cinema.Application.DTOs.User.Request;
+using cinema.Application.DTOs.User.Responce;
 using cinema.Application.Interfaces.Repository;
 using cinema.Application.Interfaces.Services;
 using cinema.Application.Interfaces.Services.Authentication;
@@ -12,44 +14,43 @@ public class UserService : IUserService
 {
     private readonly IUserRepository _rep;
     private IMapper _mapper;
-    private IJwtTokenGenerator _jwtTokenGeneratorl;
+    private IJwtTokenGenerator _jwtTokenGenerator;
 
     public UserService(IUserRepository rep, IMapper mapper, IJwtTokenGenerator jwtTokenGeneratorl)
     {
         _rep = rep;
         _mapper = mapper;
-        _jwtTokenGeneratorl = jwtTokenGeneratorl;
+        _jwtTokenGenerator = jwtTokenGeneratorl;
     }
     
-    public async Task<RegisterationResponce> Register(RegisterationRequest entity)
+    public async Task<RegisterationResponse> Register(RegisterationRequest entity)
     {
-        if (await _rep.GetByEmailAsync(entity.email) is not null)
+        if (await _rep.IsExist(entity.email))
             throw new Exception("User is already exists");
         
         var user = _mapper.Map<User>(entity);
         
-        user.Token = _jwtTokenGeneratorl.GenerateToken(user);
+        user.Token = _jwtTokenGenerator.GenerateToken(user);
         
         var result = await _rep.CreateAsync(user);
-        return _mapper.Map<RegisterationResponce>(result);
+        return _mapper.Map<RegisterationResponse>(result);
     }
 
-    public async Task<LoginResponce> Login(LoginRequest entity)
+    public async Task<LoginResponse> Login(LoginRequest entity)
     {
-        
-        if (await _rep.GetByEmailAsync(entity.email) is not User user)
+        if (!await _rep.IsExist(entity.email))
             throw new Exception("User is not exists");
-        
+        var user = await _rep.GetByEmailAsync(entity.email);
         //check if password is correct
         
-        user.Token = _jwtTokenGeneratorl.GenerateToken(user);
-        return _mapper.Map<LoginResponce>(user);
+        user.Token = _jwtTokenGenerator.GenerateToken(user);
+        return _mapper.Map<LoginResponse>(user);
     }
 
-    public async Task<UserGetByEmailResponce> GetByEmailAsync(string Email)
+    public async Task<UserGetByEmailResponse> GetByEmailAsync(string Email)
     {
         var result = await _rep.GetByEmailAsync(Email);
-        return _mapper.Map<UserGetByEmailResponce>(result);
+        return _mapper.Map<UserGetByEmailResponse>(result);
     }
 
     public Task<bool> DeleteAsync(Guid Id)
